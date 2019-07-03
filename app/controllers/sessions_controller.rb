@@ -1,26 +1,26 @@
 class SessionsController < ApplicationController
+  #skip_before_action :authenticate_user, only: [:create, :create_git, :new]
+
+  def authenticate
+    authenticate_user
+  end
 
   def create_git
-    user = Occupant.from_omniauth(request.env["omniauth.auth"])
 
-    if user.valid?
-      user.establishment = Establishment.first
-      user.name = user.username
-      user.save
-      session[:occupant_id] = user.id
-      redirect_to establishment_path(user.establishment) #request.env['omniauth.origin']
-    end
-  end
+    response = Faraday.post "https://github.com/login/oauth/access_token", {client_id: ENV["GITHUB_CLIENT"], client_secret: ENV["GITHUB_SECRET"],code: params[:code]}, {'Accept' => 'application/json'}
+    access_hash = JSON.parse(response.body)
+    session[:token] = access_hash["access_token"]
 
-  def destroy
-    reset_session
-    flash[:success] = "You have been Logged Out."
-    redirect_to request.referer
-  end
+    user_response = Faraday.get "https://api.github.com/user", {}, {'Authorization' => "token #{session[:token]}", 'Accept' => 'application/json'}
+    user_json = JSON.parse(user_response.body)
 
-
-  def new
-    @occupant = Occupant.new
+    occupant = Occupant.find_or_create_by(name: user_json["login"])
+    #bcrypt hack
+    occupant.password_digest = "password"
+    occupant.establishment = Establishment.first
+    occupant.save
+    session[:occupant_id] = occupant.id
+    redirect_to establishment_path(occupant.establishment)
   end
 
   def create
@@ -38,6 +38,19 @@ class SessionsController < ApplicationController
       return redirect_to login_path
     end
   end
+
+  def destroy
+    reset_session
+    flash[:success] = "You have been Logged Out."
+    redirect_to login_path
+  end
+
+
+  def new
+    @occupant = Occupant.new
+  end
+
+
 
   # def destroy
   #   session.delete :occupant_id

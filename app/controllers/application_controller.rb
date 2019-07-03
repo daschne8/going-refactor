@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
-  # helper_method :current_user
-  #
-  # def current_occupant
-  #   session[:user_id].nil? ? nil : User.find(session[:user_id])
-  # end
+  #before_action :authenticate_user
+
+  private
+
+    def authenticate_user
+      redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT']}&scope=repo" if !logged_in?
+    end
+
+    def logged_in?
+      !!session[:occupant_id]
+      #!!session[:token]
+    end
 
 end

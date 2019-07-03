@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/auth', to: "sessions#create_git"
+  get '/githublogin', to: "sessions#authenticate"
 
-  get "/auth/:provider/callback", to: "sessions#create_git"
-  get "/auth/failure", to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
   root to: 'sessions#new'
 
@@ -27,7 +27,5 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
-
-  #root 'sessions#new'
 
 end
