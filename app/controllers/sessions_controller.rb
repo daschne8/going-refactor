@@ -51,13 +51,6 @@ class SessionsController < ApplicationController
   end
 
 
-
-  # def destroy
-  #   session.delete :occupant_id
-  #   flash[:success] = "You have been Logged Out."
-  #   redirect_to login_path
-  # end
-  #
   private
 
   def session_params

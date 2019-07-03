@@ -9,7 +9,7 @@ class GoodsController < ApplicationController
 
   def show
     @good = Good.find_by(id: params[:id])
-    # @establishment = Establishment.find_by(params[:establishment_id])
+    render json: @good, status: 200
   end
 
   def edit

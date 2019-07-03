@@ -3,21 +3,27 @@ Rails.application.routes.draw do
   get '/auth', to: "sessions#create_git"
   get '/githublogin', to: "sessions#authenticate"
 
+  get '/login', to: 'sessions#new'
+
   delete 'signout', to: 'sessions#destroy', as: 'signout'
-  root to: 'sessions#new'
+  #root to: 'sessions#new'
 
+  root to: 'home#show'
 
-  resources :shops
-  resources :goods, only: [:create,:destroy,:update]
-  resources :tags, only: [:destroy]
-  resources :establishments, only: [:show] do
-    resources :occupants, only: [:show]
-  end
-  resources :establishments, only: [:show] do
-    resources :goods, only: [:show, :edit]
-  end
-  resources :occupants, only: [:new, :create, :destroy]
-  resources :establishments, only: [:destroy]
+  resources :goods
+  resources :establishments
+  
+  #resources :shops
+  # resources :goods, only: [:create,:destroy,:update]
+  # resources :tags, only: [:destroy]
+  # resources :establishments, only: [:show] do
+  #   resources :occupants, only: [:show]
+  # end
+  # resources :establishments, only: [:show] do
+  #   resources :goods, only: [:show, :edit]
+  # end
+  # resources :occupants, only: [:new, :create, :destroy]
+  # resources :establishments, only: [:destroy]
 
 
   scope '/admin', module: 'admin' do
