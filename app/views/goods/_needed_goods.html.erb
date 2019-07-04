@@ -2,8 +2,11 @@
 <% if @filter %>
   <%=@filter%><br><br>
 <% end %>
+<div class="goods-container">
 <% @goods.each do |good|%>
-    <%= "#{good.name} - #{good.occupant.name}" %>
-    <%# <%= link_to "Edit", edit_establishment_good_path(good.occupant.establishment,good), method: :get %>
-    <%# <%= link_to "Delete", good, method: :delete %><br> %> %>
+  <div class="good" id="good-<%=good.id%>">
+    <%= "#{good.name} - #{good.occupant.name}" %><br>
+    <%= link_to "delete", good_path(good), method: :delete%>
+  </div>
 <% end %>
+</div>

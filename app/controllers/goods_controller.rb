@@ -1,10 +1,10 @@
 class GoodsController < ApplicationController
 
   def create
-    occupant = Occupant.find_by(id: good_params[:occupant_id])
-    good = Good.create(good_params)
-    good.save
-    redirect_back(fallback_location: establishment_occupant_path(occupant.establishment,occupant))
+    #occupant = Occupant.find_by(id: good_params[:occupant_id])
+    @good = Good.create(good_params)
+    @good.save
+    render json: @good
   end
 
   def show
@@ -29,7 +29,7 @@ class GoodsController < ApplicationController
   def destroy
     occupant = current_occupant
     Good.find_by(id: params[:id]).destroy
-    redirect_back(fallback_location: establishment_occupant_path(occupant.establishment,occupant))
+    redirect_back(fallback_location: root_path)
   end
 
   private

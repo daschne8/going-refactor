@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_214247) do
+ActiveRecord::Schema.define(version: 2019_06_07_155418) do
 
   create_table "establishments", force: :cascade do |t|
     t.string "name"
@@ -68,17 +68,6 @@ ActiveRecord::Schema.define(version: 2019_06_15_214247) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "avatar_url"
-    t.string "email"
-    t.string "uid"
-    t.string "provider"
-    t.string "oauth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

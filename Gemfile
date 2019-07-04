@@ -2,13 +2,20 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.0'
+# allows use of jquery
+gem 'jquery-rails'
+# serializers
 gem 'active_model_serializers'
+#handles apis
 gem 'faraday'
-gem 'dotenv-rails'
+
 gem 'pry'
-#gem 'thin'
+
+#user auth
 gem 'bcrypt'
 gem 'omniauth-github'
+gem 'dotenv-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record

@@ -1,10 +1,8 @@
 <h1><%=@occupant.name%></h1>
-<%= render 'tags/filter' %>
-<%= render 'goods/needed_goods' %>
 
-<h2>You Need</h2>
-<% @occupant.goods.each do |good| %>
-  <%= good.name %><br>
-<% end %>
+
+<%= render 'tags/filter' %>
+
+<%= render 'goods/needed_goods' %>
 
 <%= render 'goods/form' %>

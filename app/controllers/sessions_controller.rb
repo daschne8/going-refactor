@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     occupant.establishment = Establishment.first
     occupant.save
     session[:occupant_id] = occupant.id
-    redirect_to establishment_path(occupant.establishment)
+    redirect_to root_path
   end
 
   def create
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
       if occupant.admin == true
         redirect_to displays_path
       else
-        redirect_to establishment_occupant_path(occupant.establishment,occupant)
+        redirect_to root_path
       end
     else
       flash[:warning] = "Invalid username/password"

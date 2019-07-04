@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :goods
   resources :establishments
-  
+  resources :occupants, only: [:new, :create, :destroy]
+
   #resources :shops
   # resources :goods, only: [:create,:destroy,:update]
   # resources :tags, only: [:destroy]
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   # resources :establishments, only: [:show] do
   #   resources :goods, only: [:show, :edit]
   # end
-  # resources :occupants, only: [:new, :create, :destroy]
   # resources :establishments, only: [:destroy]
 
 
