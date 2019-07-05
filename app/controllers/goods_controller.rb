@@ -7,14 +7,15 @@ class GoodsController < ApplicationController
     render json: @good
   end
 
+  def goods_data
+    @goods = Good.all
+    render json: @goods, each_serializer: GoodSerializer
+  end
+
+
   def show
     @good = Good.find_by(id: params[:id])
     render json: @good, status: 200
-  end
-
-  def show_all
-    @goods = Good.all
-    render json: @goods, status 200
   end
 
   def edit

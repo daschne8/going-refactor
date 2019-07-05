@@ -10,11 +10,12 @@ Rails.application.routes.draw do
 
   root to: 'home#show'
 
+  get '/goods/goods_data', to: 'goods#goods_data'
   resources :goods
   resources :establishments
   resources :occupants, only: [:new, :create, :destroy]
 
-  get '/goods/show_all', to: 'goods#show_all'
+
 
   #resources :shops
   # resources :goods, only: [:create,:destroy,:update]
