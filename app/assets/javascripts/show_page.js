@@ -31,9 +31,13 @@ function addGood(data){
   // debugger
   $('.goods-container').append(`<div class='good' id='good-${good_id}'>
     <a href="/goods/${good_id}">${good_name} - ${occupant_name}</a>
-
-    <br>
+    <a class="remove" id="remove-${good_id}">Remove</a>
+    <br><br>
   </div>`);
+  $(`a#remove-${good_id}`).click(function(){
+    let id = parseInt($(this).attr('id').match(/\d+/)[0])
+    removeGood(id)
+  })
 }
 
 function removeGood(id){
