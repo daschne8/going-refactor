@@ -1,5 +1,5 @@
 <h2>Add to List</h2>
-<%= form_for @good do |f| %>
+<%= form_for @good, html: {id: :add_good } do |f| %>
   <%= f.hidden_field :occupant_id, value: @occupant.id%>
   <%= f.text_field :name, placeholder: "new item" %><br>
   <%= f.text_area :description, placeholder: "add any necessary instructions here" %><br>

@@ -5,7 +5,6 @@ class HomeController < ApplicationController
     @occupant = Occupant.find_by(id: session[:occupant_id])
     @establishment = @occupant.establishment
     @tags = Tag.all
-    @goods = @establishment.goods
     @good = Good.new
   end
 

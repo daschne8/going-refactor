@@ -15,7 +15,10 @@ class GoodsController < ApplicationController
 
   def show
     @good = Good.find_by(id: params[:id])
-    render json: @good, status: 200
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @good, status: 200}
+    end
   end
 
   def edit
@@ -35,7 +38,7 @@ class GoodsController < ApplicationController
   def destroy
     occupant = current_occupant
     Good.find_by(id: params[:id]).destroy
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
   private
