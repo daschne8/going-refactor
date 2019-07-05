@@ -6,21 +6,3 @@
 <div class="goods-container">
 
 </div>
-<script type="text/javascript" charset="# encoding: UTF-8">
-  let goods = new Object()
-  window.addEventListener("load",function(){
-    let request = $.get('/goods/goods_data', function(data){
-      goods = data
-      $.each(goods,function(index){
-        let good = goods[index]
-        let good_id = good["id"];
-        let good_name = good["name"];
-        let occupant_name = good["occupant"]["name"]
-        $('.goods-container').append(`<div class='good' id='id-${good_id}'>
-          ${good_name} - ${occupant_name}<br>
-        </div>`);
-      })
-    })
-    debugger
-  })
-</script>
