@@ -12,6 +12,11 @@ class GoodsController < ApplicationController
     render json: @good, status: 200
   end
 
+  def show_all
+    @goods = Good.all
+    render json: @goods, status 200
+  end
+
   def edit
     @good = Good.find_by(id: params[:id])
     @occupant = current_occupant

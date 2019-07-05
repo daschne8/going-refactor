@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :establishments
   resources :occupants, only: [:new, :create, :destroy]
 
+  get '/goods/show_all', to: 'goods#show_all'
+
   #resources :shops
   # resources :goods, only: [:create,:destroy,:update]
   # resources :tags, only: [:destroy]

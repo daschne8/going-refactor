@@ -21,9 +21,10 @@
       posting.done(function(data){
         let good_id = data["id"];
         let good_name = data["name"];
+        let occupant_name = data["occupant"]["name"]
         debugger
         $('.goods-container').append(`<div class='good' id='id-${good_id}'>
-          ${good_name}<br>
+          ${good_name} - ${occupant_name}<br>
         </div>`);
       })
     });
