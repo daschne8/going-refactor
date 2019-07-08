@@ -1,28 +1,43 @@
 
 let goods = new Object()
+let values
 window.addEventListener("load",function(){
-  let request = $.get('/goods/goods_data', function(data){
-    goods = data
-    $.each(goods,function(index){
-      let good = goods[index]
-      addGood(good)
-    })
-  })
+  values = ''
+  populateGoods(values)
 })
 
+function populateGoods(values){
+  $('div.goods-container').empty()
+  let posting = $.post('/goods/goods_data',values)
+  posting.done(function(data){
+      goods = data
+      $.each(goods,function(index){
+        let good = goods[index]
+        addGood(good)
+      })
+  })
+}
 // form submit code
 $(function () {
   $('form#add_good').submit(function(event) {
-    //prevent form from submitting the default way
     event.preventDefault();
+    debugger
     let values = $(this).serialize();
-    console.log(values)
     let posting = $.post('/goods',values);
     posting.done(function(data){
       addGood(data)
     })
   });
 });
+
+$(function(){
+  $('form#filter_goods').submit(function(event){
+    event.preventDefault();
+    //let filter_value = $('#select-tag').children("option:selected").val()
+    values = $(this).serialize()
+    populateGoods(values)
+  })
+})
 
 //adds the goods to container and attaches removal event listener
 function addGood(data){

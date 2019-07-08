@@ -1,14 +1,19 @@
 class GoodsController < ApplicationController
 
   def create
-    #occupant = Occupant.find_by(id: good_params[:occupant_id])
     @good = Good.create(good_params)
     @good.save
     render json: @good
   end
 
   def goods_data
-    @goods = Good.all
+    binding.pry
+    puts "done"
+    if !params["select-tag"]
+      @goods = Good.all
+    else
+      @goods,@filter = Tag.find_tag(params["select-tag"])
+    end
     render json: @goods, each_serializer: GoodSerializer
   end
 
