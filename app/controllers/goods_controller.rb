@@ -7,8 +7,6 @@ class GoodsController < ApplicationController
   end
 
   def goods_data
-    binding.pry
-    puts "done"
     if !params["select-tag"]
       @goods = Good.all
     else

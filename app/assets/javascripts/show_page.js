@@ -14,26 +14,27 @@ function populateGoods(values){
       $.each(goods,function(index){
         let good = goods[index]
         addGood(good)
+        $('form#filter_goods input[type=submit]').removeAttr('disabled', 'disabled')
       })
   })
 }
 // form submit code
 $(function () {
-  $('form#add_good').submit(function(event) {
+  $('form#add_good').on("submit",function(event) {
     event.preventDefault();
-    debugger
     let values = $(this).serialize();
     let posting = $.post('/goods',values);
     posting.done(function(data){
       addGood(data)
+      $('form#add_good input[type=submit]').removeAttr('disabled', 'disabled')
+      $('form#add_good')[0].reset()
     })
   });
 });
 
 $(function(){
-  $('form#filter_goods').submit(function(event){
+  $('form#filter_goods').on("submit",function(event){
     event.preventDefault();
-    //let filter_value = $('#select-tag').children("option:selected").val()
     values = $(this).serialize()
     populateGoods(values)
   })
