@@ -13,27 +13,3 @@
  *= require_tree .
  *= require_self
  */
-body {
-  background: rgb(0,250,154);
-  display: flex;
-  flex-direction: column;
-}
-
-.main_body {
-  display:flex;
-  flex-direction: row;
-}
-
-.left_spacer,.right_spacer{
-  flex: 1;
-}
- .center_body{
-   display: flex;
-   flex-direction: column;
-   flex: 3;
- }
-
-.login_display{
-  align-self: flex-end;
-
-}

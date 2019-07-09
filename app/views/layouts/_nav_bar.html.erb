@@ -1,14 +1,6 @@
-<% home_path = '' %>
-<% if logged_in? %>
-  <% if current_occupant.admin == true %>
-    <% home_path = displays_path %>
-  <% else %>
-    <% home_path = root_path %>
-  <% end %>
-<% else %>
-  <% home_path = login_path %>
+<% if request.path != root_path %>
+  <%= link_to('Home', root_path) %>
 <% end %>
-<%= link_to "Home", home_path %>
 <% if logged_in? %>
   <%= link_to('Logout', logout_url, method: :post) %>
 <% else %>

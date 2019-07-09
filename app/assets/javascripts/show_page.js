@@ -1,9 +1,10 @@
 
 let goods = new Object()
 let values
-window.addEventListener("load",function(){
+
+$(document).on('turbolinks:load',function(){
   values = ''
-  populateGoods(values)
+    populateGoods(values)
 })
 
 function populateGoods(values){

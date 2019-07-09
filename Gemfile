@@ -6,6 +6,7 @@ ruby '2.6.0'
 gem 'faker'
 # allows use of jquery
 gem 'jquery-rails'
+gem "jquery-turbolinks"
 # serializers
 gem 'active_model_serializers'
 #handles apis
