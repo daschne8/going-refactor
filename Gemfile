@@ -7,8 +7,7 @@ gem 'faker'
 
 # allows use of jquery
 gem 'jquery-rails'
-gem "jquery-turbolinks"
-
+gem 'jquery-ui-rails'
 
 # serializers
 gem 'active_model_serializers'
@@ -24,8 +23,7 @@ gem 'bcrypt'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 
-#allowing modals
-gem 'bootstrap'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

@@ -12,8 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-
 //= require jquery3
+//= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
 //= require show_page
