@@ -1,8 +1,32 @@
-<h1>Good:</h1>
-<h2><%=@good.name%></h2>
-<h2>Decription</h2>
-<%=@good.description%>
+<h2 id="good-name"><%=@good.name%></h2>
+<h3 id="occupant-name" >requested by: <%=@good.occupant.name%></h3>
+<h2 >Description</h2>
+<p id="good-description"><%=@good.description%></p>
 <h2>Tags</h2>
-<% @good.tags.each do |tag|%>
-  <%=tag.name %>
-<% end %>
+<div >
+  <ul id="good-tags">
+    <% @good.tags.each do |tag|%>
+      <li><%=tag.name%></li>
+    <% end %>
+  </ul>
+</div>
+<a href="#" class="next" data-id="<%=@good.id%>">next</a>
+<script type="text/javascript">
+  let nextId = parseInt($('.next').attr("data-id")) + 1;
+  $(function(){
+    $('.next').click(function(event){
+      event.preventDefault();
+      $.getJSON("/goods/"+nextId, function(data){
+        nextId++;
+        $('#good-name').text(data["name"])
+        $('#good-description').text(data["description"])
+        $('#occupant-name').text(data["occupant"]["name"])
+        $('#good-tags').empty()
+        $.each(data["tags"], function(index,tag){
+          //debugger
+          $('#good-tags').append(`<li>${tag["name"]}</li>`)
+        })
+      })
+    })
+  })
+</script>
