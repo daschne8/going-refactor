@@ -11,6 +11,22 @@
 <div class="goods-container dragscroll">
 
 </div>
+<br>
 
-
-<%= render 'goods/form' %>
+<div id = "dialog-1" title = "Add Good">
+  <%= render 'goods/form' %>
+</div>
+<button id = "opener">Add Good</button>
+<script>
+   $(function() {
+      $( "#dialog-1" ).dialog({
+         autoOpen: false,
+         modal: true,
+         draggable: false,
+         resizeable: false
+      });
+      $( "#opener" ).click(function() {
+         $( "#dialog-1" ).dialog( "open" );
+      });
+   });
+</script>
