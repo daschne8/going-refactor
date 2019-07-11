@@ -29,6 +29,7 @@ body {
   overflow: hidden;
   padding: 0px;
   margin: 0px;
+  margin-bottom: 10px;
   list-style-type: none;
 }
 .nav_bar li{
@@ -83,10 +84,13 @@ body {
 
 }
 
-
 .good{
   /* background-image: radial-gradient(rgb(204, 255, 255),rgb(102, 255, 255)); */
   background-color: rgb(204, 255, 255);
   padding: 5px;
   border: 1px solid grey;
+}
+
+.login{
+  align-self: center;
 }
