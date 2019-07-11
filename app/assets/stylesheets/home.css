@@ -22,11 +22,39 @@ body {
 
 .login_display{
   align-self: flex-end;
-
 }
 
-.nav-bar{
-  background: black;
+.nav_bar ul{
+  background: #333;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+.nav_bar li{
+  float: left;
+}
+.nav_bar li a{
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+.nav_bar li a:hover {
+  background-color: #111111;
+}
+
+
+.flash{
+  padding: 3px 5px 3px 5px;
+  border-radius: 10px
+}
+.flash.warning{
+  background-color: red;
+}
+.flash.success{
+  background-color: limegreen;
 }
 
 .goods-container{

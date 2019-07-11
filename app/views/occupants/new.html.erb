@@ -1,12 +1,14 @@
-<%= form_for @occupant, url: occupants_path, method: :post do |f| %>
- <%= f.label :name %>
- <%= f.text_field :name %><br>
+<div class="login">
+  <%= form_for @occupant, url: occupants_path, method: :post do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %><br>
 
- <%= f.label :password %>
- <%= f.password_field :password %><br>
+   <%= f.label :password %>
+   <%= f.password_field :password %><br>
 
- <%= f.label :password_confirmation %>
- <%= f.password_field :password_confirmation %><br>
+   <%= f.label :password_confirmation %>
+   <%= f.password_field :password_confirmation %><br>
 
- <%= f.submit %>
-<% end %>
+   <%= f.submit %>
+  <% end %>
+</div>

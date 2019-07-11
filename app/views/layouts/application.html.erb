@@ -20,15 +20,17 @@
       <% end %>
     </div>
 
+    <div class="flash_messages">
+      <% flash.each do |key,value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
+    </div>
+    
     <div class="main_body">
 
       <div class="left_spacer"></div>
         <div class="center_body">
-          <div class="flash_messages">
-            <% flash.each do |key,value| %>
-              <%= content_tag :div, value, class: "flash #{key}" %>
-            <% end %>
-          </div>
+
 
           <%= yield %>
 

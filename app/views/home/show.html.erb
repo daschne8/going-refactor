@@ -17,16 +17,3 @@
   <%= render 'goods/form' %>
 </div>
 <button id = "opener">Add Good</button>
-<script>
-   $(function() {
-      $( "#dialog-1" ).dialog({
-         autoOpen: false,
-         modal: true,
-         draggable: false,
-         resizeable: false
-      });
-      $( "#opener" ).click(function() {
-         $( "#dialog-1" ).dialog( "open" );
-      });
-   });
-</script>

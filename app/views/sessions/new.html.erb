@@ -1,12 +1,13 @@
 <%= link_to 'Sign In with Github', '/githublogin' %>
 
+<div class="login">
+  <%= form_for @occupant, url: login_path, method: :post do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %><br>
 
-<%= form_for @occupant, url: login_path, method: :post do |f| %>
- <%= f.label :name %>
- <%= f.text_field :name %><br>
+   <%= f.label :password %>
+   <%= f.password_field :password %><br>
 
- <%= f.label :password %>
- <%= f.password_field :password %><br>
-
- <%= f.submit "Login"%>
-<% end %>
+   <%= f.submit "Login"%>
+  <% end %>
+</div>
