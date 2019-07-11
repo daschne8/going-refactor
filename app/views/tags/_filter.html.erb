@@ -1,5 +1,5 @@
 <% path = request.path %>
 <%= form_tag(path,method: "get", id: "filter_goods") do %>
   <%= select_tag "select-tag", options_from_collection_for_select(@tags,"id","name"),include_blank: true %>
-  <%= submit_tag "Filter" %>
+  <%= submit_tag "Filter", style: "display: none" %>
 <% end %>

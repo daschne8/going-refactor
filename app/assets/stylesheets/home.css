@@ -25,6 +25,10 @@ body {
 
 }
 
+.nav-bar{
+  background: black;
+}
+
 .goods-container{
   overflow: auto;
   height: 70vh;

@@ -2,11 +2,13 @@
 let goods = new Object()
 let values
 
-// $(document).on('turbolinks:load',function(){
-//   values = ''
-//     populateGoods(values)
-// })
+//populate form
+$(document).ready(function(){
+  values = ''
+  populateGoods(values)
+})
 
+// turns add goods form to dialog box
 $(function() {
    $( "#dialog-1" ).dialog({
       autoOpen: false,
@@ -18,11 +20,6 @@ $(function() {
       $( "#dialog-1" ).dialog( "open" );
    });
 });
-
-$(document).ready(function(){
-  values = ''
-  populateGoods(values)
-})
 
 function populateGoods(values){
   $('div.goods-container').empty()
@@ -51,8 +48,10 @@ $(function () {
   });
 });
 
+// filter logic
 $(function(){
-  $('form#filter_goods').on("submit",function(event){
+  // $('form#filter_goods').on("submit",function(event){
+  $('form#filter_goods select').on('change', function(event){
     event.preventDefault();
     values = $(this).serialize()
     populateGoods(values)
