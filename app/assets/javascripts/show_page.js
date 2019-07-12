@@ -42,9 +42,10 @@ $(function () {
     posting.done(function(data){
       let good = new Good(data)
       good.addGood()
+      $('form#add_good input[type=submit]').removeAttr('disabled', 'disabled')
+      $('form#add_good')[0].reset()
     })
-    $('form#add_good input[type=submit]').removeAttr('disabled', 'disabled')
-    $('form#add_good')[0].reset()
+
   });
 });
 

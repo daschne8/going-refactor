@@ -17,10 +17,7 @@ bread = Good.find_or_create_by(name: "Bread")
 peach_tree = Good.find_or_create_by(name: "Peach Tree")
 pants = Good.find_or_create_by(name: "Pants", description: "32X30 black dress pants")
 
-Good.all.each do |g|
-  g.description = Faker::Lorem.paragraph(rand(2..6))
-  g.save
-end
+
 
 
 groceries = Tag.find_or_create_by(name: "Groceries")
@@ -51,3 +48,9 @@ pants.tags << [clothing]
 walmart.tags << [groceries,clothing,baby]
 home_depot.tags << [hardware,plants]
 martins.tags << [groceries,baby]
+
+
+Good.all.each do |g|
+  g.description = Faker::Lorem.paragraph(rand(2..6))
+  g.save
+end

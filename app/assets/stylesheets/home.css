@@ -60,7 +60,7 @@ body {
 
 .goods-container{
   overflow: auto;
-  height: 70vh;
+  height: 50vh;
   border: 1px solid black;
   border-radius: 10px;
 }
