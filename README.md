@@ -1,25 +1,17 @@
 # README
+If You're Going JS Refactor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Getting started/ prerequisites
+the project shouldn't require ore than the typical bundle install and rake commands for the database
 
-Things you may want to cover:
+#Built with
+Rails
 
-* Ruby version
+#Authors
+Daniel Schneider
 
-* System dependencies
+#liscense
+This project is licensed under the MIT License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# 
+#Acknowledgements
+Thanks to asvd for the dragscroll js library.
