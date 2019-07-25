@@ -27,7 +27,7 @@ class OccupantsController < ApplicationController
     if occupant.save
       session[:occupant_id] = occupant.id
       flash[:success] = "Successfully created User!"
-      redirect_to establishment_occupant_path(occupant.establishment,occupant)
+      redirect_to root_path
     else
       flash[:warning] = "Invalid name or passwords don't match"
       redirect_to new_occupant_path

@@ -26,6 +26,7 @@ function populateGoods(values){
   let posting = $.post('/goods/goods_data',values)
   posting.done(function(data){
       goods = data
+      goods = goods.sort((a,b) => (a.name) > (b.name) ? 1 : -1)
       $.each(goods,function(index){
         let good = new Good(goods[index])
         good.addGood()
