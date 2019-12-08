@@ -51,7 +51,7 @@ Good.prototype.addGood = function(){
   })
   tags_list += '</ul>'
   $('.goods-container').append(`<div class='good' id='good-${this.id}'>
-    <a href="/goods/${this.id}">${this.name} - ${this.occupant}</a>
+    <a href="/goods/${this.id}/edit">${this.name} - ${this.occupant}</a>
     <button class="remove" id="remove-${this.id}">Remove</button><br>
     <p hidden id='good-${this.id}'>${this.description}</p>
     ${tags_list}

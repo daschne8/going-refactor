@@ -1,5 +1,9 @@
 class GoodsController < ApplicationController
 
+def index
+  redirect_to root_path
+end
+
   def create
     @good = Good.create(good_params)
     @good.save
@@ -32,9 +36,9 @@ class GoodsController < ApplicationController
   def update
     good = Good.find_by(id: params[:id])
     if good.update(good_params)
-      redirect_to establishment_good_path(good)
+      redirect_to goods_path(good)
     else
-      redirect_to edit_establishment_good_path(good)
+      redirect_to edit_good_path(good)
     end
   end
 
