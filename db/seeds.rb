@@ -12,8 +12,8 @@ admin = Occupant.create(name: "admin", password: "password", password_confirmati
 diapers = Good.find_or_create_by(name: "Diapers")
 rags = Good.find_or_create_by(name: "Rags")
 opener = Good.find_or_create_by(name: "Bottle Opener")
-formula = Good.find_or_create_by(name: "Formula")
-bread = Good.find_or_create_by(name: "Bread")
+formula = Good.find_or_create_by(name: "Formula", )
+bread = Good.find_or_create_by(name: "Bread", description: "soy based for senitive stomach")
 peach_tree = Good.find_or_create_by(name: "Peach Tree")
 pants = Good.find_or_create_by(name: "Pants", description: "32X30 black dress pants")
 
@@ -51,6 +51,8 @@ martins.tags << [groceries,baby]
 
 
 Good.all.each do |g|
-  g.description = Faker::Lorem.paragraph(rand(2..6))
+  if g.description == ""
+    g.description = Faker::Lorem.paragraph(rand(2..6))
+  end
   g.save
 end
